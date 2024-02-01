@@ -25,14 +25,19 @@ while running:
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
-        if event.type == pygame.KEYDOWN:
-            if pygame.key == pygame.K_LALT:
-                print(1)
-                screen.fill(RED)
-            if pygame.key == pygame.K_3:
-                screen.fill(BLUE)
-            if pygame.key == pygame.K_2:
-                screen.fill(GREEN)
-                pygame.display.update()
+
+    # draw screen
+    screen.fill((0,0,0))
+
+    # draw player
+    pygame.display.flip()
     
+keys = pygame.key.get_pressed()
+if keys[pygame.K_LEFT]:
+    player.move_left()
+if keys[pygame.K_RIGHT]:
+    player.move_right()
+if keys[pygame.K_SPACE]:
+    player.jump()
+
     
